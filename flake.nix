@@ -39,5 +39,9 @@
       overlays = with inputs; [
         nixvim.overlays.default
       ];
+
+      alias = {
+        packages.default = "nixvim";
+      };
     };
 }
