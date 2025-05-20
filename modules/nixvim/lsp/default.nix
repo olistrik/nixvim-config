@@ -60,6 +60,7 @@ in
 
           pylsp = {
             enable = true;
+            package = null;
             settings = {
               plugins = {
                 autopep8 = { enabled = true; };
