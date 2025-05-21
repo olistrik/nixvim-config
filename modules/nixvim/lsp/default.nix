@@ -178,6 +178,7 @@ in
 
           tinymist = {
             enable = true;
+            package = null;
           };
         };
 
