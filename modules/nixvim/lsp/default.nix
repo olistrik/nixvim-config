@@ -183,7 +183,7 @@ in
 
           prismals = {
             package = null;
-            enable = true;
+            # enable = true;
           };
         };
 

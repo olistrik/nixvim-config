@@ -70,6 +70,18 @@ in
 
     globals.mapleader = " ";
 
+    keymaps = [
+      {
+        key = ";";
+        action = ":";
+        options.noremap = false;
+      }
+      {
+        key = ";;";
+        action = ";";
+      }
+    ];
+
     opts = {
       number = true;
       relativenumber = true;
