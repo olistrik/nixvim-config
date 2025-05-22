@@ -180,6 +180,11 @@ in
             enable = true;
             package = null;
           };
+
+          prismals = {
+            package = null;
+            enable = true;
+          };
         };
 
         keymaps = {
