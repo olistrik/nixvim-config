@@ -185,6 +185,10 @@ in
             package = null;
             # enable = true;
           };
+
+          gopls = {
+            enable = true;
+          };
         };
 
         keymaps = {
