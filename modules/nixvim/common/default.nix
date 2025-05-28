@@ -25,7 +25,7 @@ in
   config = mkIf cfg.enable {
     plugins = {
       # Visual aids.
-      nvim-colorizer = enabled; # does this: #FF0
+      colorizer = enabled; # does this: #FF0
       todo-comments = enabled; # NOTE: Does this.
 
       # Commenting utilities.
