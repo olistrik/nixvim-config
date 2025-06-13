@@ -58,8 +58,12 @@ in
           #   };
           # };
 
-          pylsp = {
+          pyright = {
             enable = true;
+          };
+
+          pylsp = {
+            enable = false;
             settings = {
               plugins = {
                 autopep8 = { enabled = true; };
