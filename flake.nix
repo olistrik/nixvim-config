@@ -32,6 +32,10 @@
       };
     in
     lib.mkFlake {
+      channels-config = {
+        allowUnfree = true;
+      };
+
       nixvimModules = lib.snowfall.module.create-modules {
         src = ./modules/nixvim;
       };
