@@ -12,6 +12,7 @@ in
   config = mkIf cfg.enable {
     extraPlugins = with pkgs.vimPlugins; [
       codecompanion-nvim
+      copilot-vim
     ];
 
     extraConfigLua = ''
