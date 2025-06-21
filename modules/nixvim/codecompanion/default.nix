@@ -15,28 +15,41 @@ in
       copilot-vim
     ];
 
-    extraConfigLua = ''
-      require("codecompanion").setup({
-        strategies = {
-          chat = {
-            adapter = "copilot",
-          },
-          inline = {
-            adapter = "copilot",
-          },
-        },
-        display = {
-          chat = {
-            window = {
-              position = "right",
-              width = 0.35,
-            },
-          },
-        },
-      });
-
-      vim.cmd([[cab cc CodeCompanion]]);
-    '';
+    plugins = {
+      # I need copilot to authenticate for codecompanion to work.
+      copilot-vim = {
+        enable = true;
+        settings = {
+          filetypes = {
+            "*" = false; # disable it because it noisy.
+          };
+        };
+      };
+      codecompanion = {
+        enable = true;
+        settings = {
+          strategies = {
+            agent = {
+              adapter = "copilot";
+            };
+            chat = {
+              adapter = "copilot";
+            };
+            inline = {
+              adapter = "copilot";
+            };
+          };
+          display = {
+            chat = {
+              window = {
+                position = "right";
+                width = 0.35;
+              };
+            };
+          };
+        };
+      };
+    };
 
     keymaps =
       let

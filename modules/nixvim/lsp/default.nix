@@ -51,6 +51,7 @@ in
               formatting.command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
             };
           };
+
           # matlab-ls = {
           #   enable = true;
           #   settings = {
@@ -60,103 +61,6 @@ in
 
           pyright = {
             enable = true;
-          };
-
-          pylsp = {
-            enable = false;
-            settings = {
-              plugins = {
-                autopep8 = { enabled = true; };
-                flake8 = { enabled = false; };
-                jedi = {
-                  auto_import_modules = [ "numpy" ];
-                  extra_paths = [ ];
-                  env_vars = null;
-                  environment = null;
-                };
-                jedi_completion = {
-                  enabled = true;
-                  include_params = true;
-                  include_class_objects = false;
-                  include_function_objects = false;
-                  fuzzy = false;
-                  eager = false;
-                  resolve_at_most = 25;
-                  cache_for = [
-                    "pandas"
-                    "numpy"
-                    "pytorch"
-                    "matplotlib"
-                  ];
-                };
-                jedi_definition = {
-                  enabled = true;
-                  follow_imports = true;
-                  follow_builtin_imports = true;
-                  follow_builtin_definitions = true;
-                };
-                jedi_hover = { enabled = true; };
-                jedi_references = { enabled = true; };
-                jedi_signature_help = { enabled = true; };
-                jedi_symbols = {
-                  enabled = true;
-                  all_scopes = true;
-                  include_import_symbols = true;
-                };
-                mccabe = {
-                  enabled = true;
-                  threshold = 15;
-                };
-                preload = {
-                  enabled = true;
-                  modules = [ ];
-                };
-                pycodestyle = {
-                  enabled = true;
-                  exclude = [ ];
-                  filename = [ ];
-                  select = null;
-                  ignore = [ ];
-                  hangClosing = true;
-                  maxLineLength = 80;
-                  indentSize = 4;
-                  ropeFolder = null; # This isn't in the docs?
-                };
-                pydocstyle = {
-                  enabled = false;
-                  convention = null;
-                  addIgnore = [ ];
-                  addSelect = [ ];
-                  ignore = [ ];
-                  select = null;
-                  match = "(?!test_).*\\.py";
-                  matchDir = "[^\\.].*";
-                };
-                pyflakes = { enabled = true; };
-                pylint = {
-                  enabled = false;
-                  args = [ ];
-                  executable = null;
-                };
-                rope_autoimport = {
-                  enabled = true;
-                  completions = { enabled = true; };
-                  code_actions = { enabled = true; };
-                  memory = false;
-                };
-                rope_completion = {
-                  enabled = false;
-                  eager = false;
-                };
-                yapf = {
-                  enabled = true;
-                };
-              };
-              rope = {
-                extensionModules = null;
-                ropeFolder = null;
-              };
-            };
           };
 
           cmake = {
@@ -176,17 +80,13 @@ in
           };
 
           ts_ls = {
-            enable = true;
+            # Use typescript-tools instead.
+            # enable = true; 
           };
 
           tinymist = {
             enable = true;
             package = null;
-          };
-
-          prismals = {
-            package = null;
-            # enable = true;
           };
 
           gopls = {
