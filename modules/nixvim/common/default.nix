@@ -92,11 +92,13 @@ in
       mouse = "nvchr";
       signcolumn = "yes";
 
-      # TODO: Tabs for indentation, spaces for alignent.
+      # TODO: Tabs for indentation, spaces for alignment.
       expandtab = false;
       tabstop = 4;
       shiftwidth = 4;
       softtabstop = 4;
+
+      spell = true;
     };
 
     autoCmd = with autoCmd; [

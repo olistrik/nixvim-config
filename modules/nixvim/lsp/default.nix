@@ -59,6 +59,11 @@ in
           #   };
           # };
 
+          ltex =
+            {
+              enable = true;
+            };
+
           pyright = {
             enable = true;
           };

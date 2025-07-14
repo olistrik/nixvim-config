@@ -18,7 +18,7 @@ in
     plugins = {
       # I need copilot to authenticate for codecompanion to work.
       copilot-vim = {
-        enable = true;
+        enable = false;
         settings = {
           filetypes = {
             "*" = false; # disable it because it noisy.
