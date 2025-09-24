@@ -45,6 +45,33 @@ in
         };
       };
 
+      render-markdown = {
+        enable = true;
+        settings = {
+          render_modes = true;
+          file_types = [ "markdown" "codecompanion" ];
+          overrides = {
+            filetype = {
+              codecompanion = {
+                html = {
+                  tag = {
+                    # Shamelessly copied: https://github.com/olimorris/dotfiles/blob/b7d2f82c8411fa01602018684aa924abaeb5dd40/.config/nvim/lua/plugins/ui.lua
+                    buf = { icon = " "; highlight = "CodeCompanionChatIcon"; };
+                    file = { icon = " "; highlight = "CodeCompanionChatIcon"; };
+                    group = { icon = " "; highlight = "CodeCompanionChatIcon"; };
+                    help = { icon = "󰘥 "; highlight = "CodeCompanionChatIcon"; };
+                    image = { icon = " "; highlight = "CodeCompanionChatIcon"; };
+                    symbols = { icon = " "; highlight = "CodeCompanionChatIcon"; };
+                    tool = { icon = "󰯠 "; highlight = "CodeCompanionChatIcon"; };
+                    url = { icon = "󰌹 "; highlight = "CodeCompanionChatIcon"; };
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+
       # luasnip = enabled;
       # harpoon = enabled;
       # abolish = enabled;
@@ -103,7 +130,24 @@ in
 
     autoCmd = with autoCmd; [
       (indentOverride [ "nix" ] true 2)
+      {
+        event = [ "FileType" ];
+        pattern = [ "codecompanion" ];
+        callback = {
+          __raw = '' 
+          function(args)
+            local clients = vim.lsp.get_clients({bufnr = args.buf})
+            for _, client in ipairs(clients) do
+              vim.lsp.buf_detach_client(args.buf, client.id)
+            end
+
+            vim.keymap.set("i", "<C-CR>", "<CR>", { buffer = true, noremap = true, silent = true })
+          end
+        '';
+        };
+      }
     ];
   };
 
 }
+

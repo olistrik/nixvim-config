@@ -12,13 +12,13 @@ in
   config = mkIf cfg.enable {
     extraPlugins = with pkgs.vimPlugins; [
       codecompanion-nvim
-      copilot-vim
     ];
 
     plugins = {
       # I need copilot to authenticate for codecompanion to work.
       copilot-vim = {
-        enable = false;
+        enable = true;
+        package = pkgs.vimPlugins.copilot-vim;
         settings = {
           filetypes = {
             "*" = false; # disable it because it noisy.
@@ -34,6 +34,11 @@ in
             };
             chat = {
               adapter = "copilot";
+              keymaps = {
+                send = {
+                  modes = { n = "<CR>"; i = "<CR>"; };
+                };
+              };
             };
             inline = {
               adapter = "copilot";
@@ -62,7 +67,7 @@ in
           noremap = true;
           silent = true;
         })
-        (set [ "n" "v" ] "<LocalLeader>a" "<cmd>CodeCompanionChat Toggle<cr>" {
+        (set [ "n" "v" ] "<leader>a" "<cmd>CodeCompanionChat Toggle<cr>" {
           noremap = true;
           silent = true;
         })
